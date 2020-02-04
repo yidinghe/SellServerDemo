@@ -15,7 +15,6 @@ import java.util.Date;
  * 2017-05-07 14:30
  */
 @Entity
-@DynamicInsert
 @DynamicUpdate
 @Data
 public class ProductCategory {
@@ -31,9 +30,9 @@ public class ProductCategory {
     /** 类目编号. */
     private Integer categoryType;
 
-    private Date createTime;
-
-    private Date updateTime;
+//    private Date createTime;
+//
+//    private Date updateTime;
 
     public ProductCategory() {
     }

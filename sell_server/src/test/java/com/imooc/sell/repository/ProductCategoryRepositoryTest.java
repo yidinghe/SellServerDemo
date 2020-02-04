@@ -9,6 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
@@ -24,11 +27,18 @@ public class ProductCategoryRepositoryTest {
         System.out.println(productCategory);
     }
 
+    //在测试的时候, 事务对db会完全回滚
     @Test
     @Transactional
     public void saveTest() {
         ProductCategory productCategory = new ProductCategory("男生最爱", 4);
         ProductCategory result = repository.save(productCategory);
 //        Assert.assertNotEquals(null, result);
+    }
+
+    @Test
+    public void findByCategoryTypeInTest() {
+        List<Integer> list = Arrays.asList(2, 3, 4);
+        List<ProductCategory> result = repository.findByCategoryTypeIn(list);
     }
 }
